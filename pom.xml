@@ -11,7 +11,7 @@
     <groupId>pe.edu.upc.aaw</groupId>
     <artifactId>Lawdingo_G4</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Lawdingo_G4</name>
     <description>Lawdingo_G4</description>
     <properties>

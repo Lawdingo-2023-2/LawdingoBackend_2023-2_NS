@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pe.edu.upc.aaw.lawdingo_g4.LawdingoG4ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 71.8 s - in pe.edu.upc.aaw.lawdingo_g4.LawdingoG4ApplicationTests
