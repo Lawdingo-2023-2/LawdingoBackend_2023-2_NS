@@ -57,6 +57,7 @@ public class DistrictController {
             ProceedingByDistrictDTO dto = new ProceedingByDistrictDTO();
             dto.setNameDistrict(data[0]);
             dto.setQuantityProceeding(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
         }
         return listaDTO;
     }
