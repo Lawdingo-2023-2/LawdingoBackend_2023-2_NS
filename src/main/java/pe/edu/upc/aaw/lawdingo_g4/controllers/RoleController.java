@@ -2,7 +2,7 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.RoleDTO;
 import pe.edu.upc.aaw.lawdingo_g4.entities.Role;
@@ -40,7 +40,7 @@ public class RoleController {
         return dto;
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody RoleDTO dto){
         ModelMapper m = new ModelMapper();
         Role e = m.map(dto,Role.class);

@@ -2,7 +2,7 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.CategoryDTO;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.ConsultationByCategoryDTO;
@@ -19,14 +19,14 @@ public class CategoryController {
     private ICategoryService aS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody CategoryDTO dto) {
         ModelMapper m = new ModelMapper();
         Category a = m.map(dto, Category.class);
         aS.insert(a);
     }
     @PutMapping()
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody CategoryDTO dto){
         ModelMapper m=new ModelMapper();
         Category u=m.map(dto,Category.class);
@@ -35,7 +35,7 @@ public class CategoryController {
 
 
     @GetMapping
-    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     public List<CategoryDTO> list() {
         return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -44,7 +44,7 @@ public class CategoryController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/cantidadconsultasporcategoria")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')" )
+    //@PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')" )
     public List<ConsultationByCategoryDTO> cantidadconsultasporcategoria(){
         List<String[]> lista = aS.querieCategory();
         List<ConsultationByCategoryDTO> listDTO = new ArrayList<>();
