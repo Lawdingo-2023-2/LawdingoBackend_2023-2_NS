@@ -2,8 +2,6 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +21,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private PasswordEncoder bcrypt;
+    private String pass;
     @Autowired
     private IUserService uS;
 
@@ -38,7 +35,7 @@ public class UserController {
 
             ModelMapper m = new ModelMapper();
             Users u = m.map(dto, Users.class);
-            String bcryptPassword = bcrypt.encode(u.getPassword());
+            String bcryptPassword = pass;
             u.setPassword(bcryptPassword);
             uS.insert(u);
             return "Usuario creado";
@@ -67,7 +64,7 @@ public class UserController {
         }).collect(Collectors.toList());
     }
     @PutMapping()
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody UserDTO dto){
         ModelMapper m=new ModelMapper();
         Users u=m.map(dto,Users.class);

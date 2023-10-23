@@ -2,7 +2,7 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.SubscriptionDTO;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.UserDTO;
@@ -31,7 +31,7 @@ public class SubscriptionController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     public List<SubscriptionDTO> list() {
         return uS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -61,7 +61,7 @@ public class SubscriptionController {
         uS.delete(id);
     }
     @PutMapping()
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody SubscriptionDTO dto){
         ModelMapper m=new ModelMapper();
         Subscription u=m.map(dto,Subscription.class);
