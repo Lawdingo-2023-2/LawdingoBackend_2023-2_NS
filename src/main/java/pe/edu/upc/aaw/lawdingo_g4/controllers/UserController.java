@@ -27,20 +27,10 @@ public class UserController {
 
 
     @PostMapping("/save")
-    public String saveUser(@Valid Users user, BindingResult result, Model model, SessionStatus status, @RequestBody UserDTO dto)
-            throws Exception {
-        if (result.hasErrors()) {
-            return "usersecurity/user";
-        } else {
-
-            ModelMapper m = new ModelMapper();
-            Users u = m.map(dto, Users.class);
-            String bcryptPassword = pass;
-            u.setPassword(bcryptPassword);
-            uS.insert(u);
-            return "Usuario creado";
-        }
-
+    public void saveUser(@RequestBody UserDTO dto){
+        ModelMapper m = new ModelMapper();
+        Users u =m.map(dto,Users.class);
+        uS.insert(u);
     }
 
     //PROBAR
